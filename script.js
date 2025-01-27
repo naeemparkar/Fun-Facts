@@ -1,17 +1,35 @@
 const facts = [
-    "The world's first speeding ticket was issued in 1902.",
-    "The average car has about 30,000 parts.",
-    "The longest traffic jam in history was 62 miles long, occurring in France in 1980.",
-    "The first car radio was introduced in 1922.",
-    "The first car to be mass-produced was the Model T by Ford in 1913.",
-    "Electric cars have been around since the 1830s.",
-    "The first windshield wipers were invented by Mary Anderson in 1903.",
-    "Cruise control was invented in 1948 by Ralph Teetor, who was blind.",
-    "The first car to feature seat belts was the 1950 Nash Rambler.",
-    "The most popular car color in the world is white."
+    {
+        text: "The world's first speeding ticket was issued in 1902.",
+        image: "https://example.com/speeding_ticket.jpg" // Replace with actual image URLs
+    },
+    {
+        text: "The average car has about 30,000 parts.",
+        image: "https://example.com/average_car_parts.jpg"
+    },
+    {
+        text: "The longest traffic jam in history was 62 miles long, occurring in France in 1980.",
+        image: "https://example.com/traffic_jam.jpg"
+    },
+    {
+        text: "The first car radio was introduced in 1922.",
+        image: "https://example.com/car_radio.jpg"
+    },
+    {
+        text: "The first car to be mass-produced was the Model T by Ford in 1913.",
+        image: "https://example.com/model_t.jpg"
+    }
 ];
 
 function generateFact() {
     const randomIndex = Math.floor(Math.random() * facts.length);
-    document.getElementById('fact').innerText = facts[randomIndex];
+    const fact = facts[randomIndex];
+    document.getElementById('fact').innerText = fact.text;
+    document.getElementById('fact-image').src = fact.image;
 }
+
+document.body.addEventListener('mousemove', (event) => {
+    const x = event.clientX / window.innerWidth * 255;
+    const y = event.clientY / window.innerHeight * 255;
+    document.body.style.background = `rgb(${x}, ${y}, 150)`;
+});
